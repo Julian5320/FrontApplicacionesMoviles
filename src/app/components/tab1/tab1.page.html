@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Tareas de hoy
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-down"
+      refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card *ngFor="let tarea of tareas">
+    <ion-card-header>
+      <!-- <ion-img *ngIf="tarea.imagen != ''" [src]="tarea.imagen">Imagen tarea</ion-img> -->
+      <ion-card-subtitle>{{tarea.cargo}}</ion-card-subtitle>
+      <ion-card-title>{{tarea.nombre}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content style="margin-right: 56px; margin-bottom: 2rem;">
+      {{tarea.descripcion}}
+    </ion-card-content>
+    <ion-fab vertical="top" horizontal="end" slot="fixed">
+      <ion-fab-button color="danger" (click)="delete(tarea.id)"> 
+        <ion-icon name="trash"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button color="medium" (click)="editar(tarea.id)">
+        <ion-icon name="create"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-card>
+</ion-content>
