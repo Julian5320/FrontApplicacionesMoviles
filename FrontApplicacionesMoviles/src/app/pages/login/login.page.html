@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="main-content">
+  <ion-card-content>
+    <ion-item>
+      <ion-input type="text" placeholder="Correo" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="password" placeholder="Contraseña" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+    <ion-button fill="outline" expand="block" (click)="onLogin()">Ingresar</ion-button>
+    <ion-button fill="outline" expand="block" routerLink="/register">Registrate</ion-button>
+  </ion-card-content>
+</ion-content>
